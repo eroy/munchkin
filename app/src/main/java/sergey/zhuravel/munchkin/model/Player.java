@@ -1,18 +1,37 @@
 package sergey.zhuravel.munchkin.model;
 
 
-public class Player {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import sergey.zhuravel.munchkin.Utils;
+
+public class Player extends RealmObject {
 
     private String name;
     private int level;
     private int strength;
     private int summary;
 
+    @PrimaryKey
+    private int id;
+
+    public Player() {
+    }
+
     public Player(String name) {
         this.name = name;
         this.level = 1;
         this.strength = 0;
         this.summary = this.level + this.strength;
+        this.id = Utils.generateId();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

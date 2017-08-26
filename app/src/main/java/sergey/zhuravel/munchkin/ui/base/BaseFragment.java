@@ -10,11 +10,13 @@ import sergey.zhuravel.munchkin.R;
 public class BaseFragment extends Fragment {
 
     public void initToolbar(Toolbar mToolbar, String title, boolean homeEnable) {
+
         ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
         if (((AppCompatActivity) getActivity()).getSupportActionBar() != null) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(homeEnable);
             ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(homeEnable);
             ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
+            mToolbar.setTitleTextColor(getResources().getColor(R.color.textPrimary));
         }
 
     }
