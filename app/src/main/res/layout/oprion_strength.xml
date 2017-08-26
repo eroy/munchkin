@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:showIn="@layout/fragment_fight">
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:id="@+id/textStrength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strength"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/textStrength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/optionPlusStrength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/plusStrength"
+                app:elevation="@dimen/elevation_fab"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabSize="mini" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+1"
+                android:theme="@style/TextPrimaryFab"
+                app:layout_anchor="@id/plusStrength"
+                app:layout_anchorGravity="center" />
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/optionMinusStrength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/optionPlusStrength"
+            android:layout_marginTop="26dp">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/minusStrength"
+                app:elevation="@dimen/elevation_fab"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabSize="mini" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-1"
+                android:theme="@style/TextPrimaryFab"
+                app:layout_anchor="@id/minusStrength"
+                app:layout_anchorGravity="center" />
+        </android.support.design.widget.CoordinatorLayout>
+
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/optionDPlusStrength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/optionPlusStrength">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/dPlusStrength"
+                app:elevation="@dimen/elevation_fab"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabSize="mini" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="++"
+                android:theme="@style/TextPrimaryFab"
+                app:layout_anchor="@id/dPlusStrength"
+                app:layout_anchorGravity="center" />
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/optionDMinusStrength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/optionDPlusStrength"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="26dp"
+            android:layout_toEndOf="@id/optionPlusStrength">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/dMinusStrength"
+                app:elevation="@dimen/elevation_fab"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabSize="mini" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- -"
+                android:theme="@style/TextPrimaryFab"
+                app:layout_anchor="@id/dMinusStrength"
+                app:layout_anchorGravity="center" />
+        </android.support.design.widget.CoordinatorLayout>
+
+    </RelativeLayout>
+</merge>

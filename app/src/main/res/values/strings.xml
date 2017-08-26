@@ -13,6 +13,10 @@
     <string name="name_munchkin">Name munchkin</string>
     <string name="please_add_new_munchkin_for_start_game">Please add new munchkin for start game</string>
     <string name="error_message_person">To fight, you need to add more than 1 person</string>
+    <string name="level">Level</string>
+    <string name="strength">Strength</string>
+    <string name="finish">Finish</string>
+    <string name="error_message_level">The level can not be less than 1</string>
 
 
 </resources>

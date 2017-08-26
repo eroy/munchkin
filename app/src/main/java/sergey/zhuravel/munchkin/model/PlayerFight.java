@@ -1,24 +1,19 @@
 package sergey.zhuravel.munchkin.model;
 
-
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 import sergey.zhuravel.munchkin.Utils;
 
-public class Player extends RealmObject {
 
+public class PlayerFight {
     private String name;
     private int level;
     private int strength;
     private int summary;
-
-    @PrimaryKey
     private int id;
 
-    public Player() {
+    public PlayerFight() {
     }
 
-    public Player(String name) {
+    public PlayerFight(String name) {
         this.name = name;
         this.level = 1;
         this.strength = 0;
@@ -26,13 +21,7 @@ public class Player extends RealmObject {
         this.id = Utils.generateId();
     }
 
-    public Player(String name, int level, int strength, int id) {
-        this.name = name;
-        this.level = level;
-        this.strength = strength;
-        this.id = id;
-        this.summary = level + strength;
-    }
+
 
     public int getId() {
         return id;
@@ -67,7 +56,7 @@ public class Player extends RealmObject {
     }
 
     public int getSummary() {
-        return summary;
+        return this.level + this.strength;
     }
 
     public void setSummary(int summary) {

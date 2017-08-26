@@ -6,6 +6,8 @@
 
     <color name="background">#DAE8FC</color>
     <color name="textPrimary">#000000</color>
+    <color name="gray">#a7a7a7</color>
+
 
 
 </resources>
