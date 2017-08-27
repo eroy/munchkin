@@ -13,6 +13,10 @@ public interface StartContract {
         Observable<List<Player>> getMunchkin();
         void deleteMunchkin(int id);
         int getCountMunchkin();
+
+        int getMaxLevelFight();
+        void setMaxLevelFight(int maxLevel);
+
     }
 
     interface View {
@@ -22,6 +26,7 @@ public interface StartContract {
         void addPlayersToAdapter(List<Player> playerList);
         void navigateToFight();
         void showErrorMessage();
+        void showDialogLevelMaxFight();
 
     }
 
@@ -31,8 +36,9 @@ public interface StartContract {
         void deleteMunchkin(int id);
         void editMunchkin(Player player);
         void onClickFight();
-
+        void setMaxLevelFight(int levelMax);
         void onDestroy();
+        int getMaxLevelFight();
 
     }
 }

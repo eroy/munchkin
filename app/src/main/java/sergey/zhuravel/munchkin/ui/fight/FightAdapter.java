@@ -52,12 +52,12 @@ public class FightAdapter extends RecyclerView.Adapter<FightAdapter.ViewHolder> 
         holder.rlName.setOnClickListener(v -> {
             rowIndex = position;
 
-            mPresenter.setCurrentPlayer(player);
             notifyDataSetChanged();
 
         });
 
         if (rowIndex == position) {
+            mPresenter.setTextSubTitle(player);
             holder.itemView.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
         } else {
             holder.itemView.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimary));

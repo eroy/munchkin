@@ -53,7 +53,8 @@ public class StartFragment extends BaseFragment implements StartContract.View {
 
         initView(view);
 
-        mPresenter = new StartPresenter(this, new StartModel(MunchkinApp.getRealmManager()));
+        mPresenter = new StartPresenter(this,
+                new StartModel(MunchkinApp.getRealmManager(), MunchkinApp.getSettingManager(getActivity())));
 
         mStartAdapter = new StartAdapter(mPresenter);
         mRwPlayers.setAdapter(mStartAdapter);
@@ -161,6 +162,27 @@ public class StartFragment extends BaseFragment implements StartContract.View {
     }
 
     @Override
+    public void showDialogLevelMaxFight() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(R.string.dialog_level_title);
+        View viewDialog = getActivity().getLayoutInflater().inflate(R.layout.dialog_max_level, null);
+        builder.setView(viewDialog);
+
+        AppCompatEditText etLevel = (AppCompatEditText) viewDialog.findViewById(R.id.et_level);
+        etLevel.setText(String.valueOf(mPresenter.getMaxLevelFight()));
+
+        builder
+                .setPositiveButton(R.string.dialog_level_fight, (dialog, which) -> {
+                    int levelMax = Integer.parseInt(etLevel.getText().toString());
+                    mPresenter.setMaxLevelFight(levelMax);
+                })
+                .setNegativeButton(R.string.dialog_level_cancel, (dialog, which) -> dialog.dismiss())
+                .setCancelable(false)
+                .show();
+
+    }
+
+    @Override
     public void addItemToAdapter(Player player) {
         mStartAdapter.addPlayer(player);
     }
@@ -178,7 +200,7 @@ public class StartFragment extends BaseFragment implements StartContract.View {
 
     @Override
     public void showErrorMessage() {
-        Snackbar.make(getView(), R.string.error_message_person,Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getView(), R.string.error_message_person, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

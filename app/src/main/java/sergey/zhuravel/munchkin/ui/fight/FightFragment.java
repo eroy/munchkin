@@ -23,6 +23,7 @@ import sergey.zhuravel.munchkin.R;
 import sergey.zhuravel.munchkin.constant.Constant;
 import sergey.zhuravel.munchkin.model.PlayerFight;
 import sergey.zhuravel.munchkin.ui.base.BaseFragment;
+import sergey.zhuravel.munchkin.ui.end.EndFragment;
 
 public class FightFragment extends BaseFragment implements FightContract.View {
 
@@ -55,7 +56,8 @@ public class FightFragment extends BaseFragment implements FightContract.View {
         View view = inflater.inflate(R.layout.fragment_fight, container, false);
         initView(view);
 
-        mPresenter = new FightPresenter(this, new FightModel(MunchkinApp.getRealmManager()));
+        mPresenter = new FightPresenter(this,
+                new FightModel(MunchkinApp.getRealmManager(),MunchkinApp.getSettingManager(getActivity())));
 
         mFightAdapter = new FightAdapter(mPresenter, getActivity());
         mRwPlayers.setAdapter(mFightAdapter);
@@ -63,6 +65,7 @@ public class FightFragment extends BaseFragment implements FightContract.View {
         mPresenter.getAllMunchkin();
 
         onClickFab();
+
 
         return view;
     }
@@ -83,6 +86,12 @@ public class FightFragment extends BaseFragment implements FightContract.View {
     @Override
     public PlayerFight getCurrentPlayerFight() {
         return mFightAdapter.getCurrentPlayerFight();
+    }
+
+    @Override
+    public void setTextSubtitle(String name, int level, int strength) {
+        setTextSubTitle(name + " | " + getString(R.string.level) + ": " +
+                level + " | " + getString(R.string.strength) + ": " + strength);
     }
 
     @Override
@@ -120,7 +129,7 @@ public class FightFragment extends BaseFragment implements FightContract.View {
 
         switch (item.getItemId()) {
             case R.id.finishGame:
-
+                showDialogEndFight();
                 break;
         }
 
@@ -129,15 +138,25 @@ public class FightFragment extends BaseFragment implements FightContract.View {
     }
 
     @Override
+    public void showDialogEndFight() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.end_message);
+
+            builder
+                    .setPositiveButton(R.string.end_yes, (dialog, which) -> navigateToNextFragment(new EndFragment()))
+                    .setNegativeButton(R.string.end_no, (dialog, which) -> dialog.dismiss())
+                    .setCancelable(false)
+                    .show();
+
+    }
+
+    @Override
     public void addPlayersToAdapter(List<PlayerFight> playerList) {
         mFightAdapter.addPlayers(playerList);
 
     }
 
-    @Override
-    public void showDialogEndFight() {
-        Snackbar.make(getView(), "End game ?", Snackbar.LENGTH_SHORT).show();
-    }
+
 
     @Override
     public void showErrorMinusLevelMessage() {

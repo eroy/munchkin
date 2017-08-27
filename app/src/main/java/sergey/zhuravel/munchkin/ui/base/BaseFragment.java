@@ -16,7 +16,9 @@ public class BaseFragment extends Fragment {
             ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(homeEnable);
             ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(homeEnable);
             ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
-            mToolbar.setTitleTextColor(getResources().getColor(R.color.textPrimary));
+//            mToolbar.setTitleTextColor(getResources().getColor(R.color.textPrimary));
+//            mToolbar.setSubtitleTextColor(getResources().getColor(R.color.textPrimary));
+
         }
 
     }
@@ -24,4 +26,9 @@ public class BaseFragment extends Fragment {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_start, fragment).addToBackStack(null).commit();
 
     }
+
+    public void setTextSubTitle(String textSubTitle) {
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setSubtitle(textSubTitle);
+    }
+
 }

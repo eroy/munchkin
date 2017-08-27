@@ -41,9 +41,11 @@ public class FightPresenter implements FightContract.Presenter {
     }
 
     @Override
-    public void setCurrentPlayer(PlayerFight player) {
+    public void setTextSubTitle(PlayerFight playerFight) {
+        mView.setTextSubtitle(playerFight.getName(), playerFight.getLevel(), playerFight.getStrength());
 
     }
+
 
     @Override
     public void processingOptionsPlus(String type, String operation, int indexCount) {
@@ -52,7 +54,8 @@ public class FightPresenter implements FightContract.Presenter {
         switch (operation) {
             case Constant.OPERATION_PLUS:
                 if (type.equals(Constant.TYPE_LEVEL)) {
-                    if (currentPlayerFight.getLevel() == 10) {
+                    Log.e("TESt", String.valueOf(currentPlayerFight.getLevel()));
+                    if (currentPlayerFight.getLevel() == (mModel.getMaxLevelFight() - 1)) {
                         mView.showDialogEndFight();
                     } else {
                         currentPlayerFight.setLevel(currentPlayerFight.getLevel() + indexCount);

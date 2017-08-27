@@ -54,11 +54,22 @@ public class StartPresenter implements StartContract.Presenter {
     @Override
     public void onClickFight() {
         if (mModel.getCountMunchkin() > 1) {
-            mView.navigateToFight();
+            mView.showDialogLevelMaxFight();
         }
         else {
             mView.showErrorMessage();
         }
+    }
+
+    @Override
+    public int getMaxLevelFight() {
+        return mModel.getMaxLevelFight();
+    }
+
+    @Override
+    public void setMaxLevelFight(int levelMax) {
+        mModel.setMaxLevelFight(levelMax);
+        mView.navigateToFight();
     }
 
     @Override

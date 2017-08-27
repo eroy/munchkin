@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/finishGame"
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:icon="@drawable/checkered_flag"
         android:title="@string/finish"
         app:showAsAction="always" />
 </menu>

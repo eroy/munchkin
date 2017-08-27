@@ -1,13 +1,18 @@
 <resources>
     <string name="app_name">Munchkin</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_new_munchkin">Add new munchkin</string>
     <string name="cancel">Cancel</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="add">Add</string>
+    <string name="end_yes">Yes, endgame</string>
+    <string name="end_no">No, continue</string>
+    <string name="dialog_level_fight">Fight!</string>
+    <string name="dialog_level_cancel">Cancel</string>
+    <string name="dialog_level_title">Max level fight</string>
+    <string name="end_message">Do you want endgame ?</string>
     <string name="dialog_edit_munchkin">Edit munchkin</string>
     <string name="dialog_add_munchkin">Add new munchkin</string>
     <string name="name_munchkin">Name munchkin</string>

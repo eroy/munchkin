@@ -36,7 +36,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="30dp">
 
-                <include layout="@layout/oprion_strength" />
+                <include layout="@layout/option_strength" />
 
             </RelativeLayout>
 
