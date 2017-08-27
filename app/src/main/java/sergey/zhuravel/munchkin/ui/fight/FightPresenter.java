@@ -54,7 +54,6 @@ public class FightPresenter implements FightContract.Presenter {
         switch (operation) {
             case Constant.OPERATION_PLUS:
                 if (type.equals(Constant.TYPE_LEVEL)) {
-                    Log.e("TESt", String.valueOf(currentPlayerFight.getLevel()));
                     if (currentPlayerFight.getLevel() == (mModel.getMaxLevelFight() - 1)) {
                         mView.showDialogEndFight();
                     } else {

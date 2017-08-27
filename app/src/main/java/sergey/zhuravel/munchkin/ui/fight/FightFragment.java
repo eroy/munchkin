@@ -1,6 +1,7 @@
 package sergey.zhuravel.munchkin.ui.fight;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,8 +16,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.List;
+import java.util.Random;
 
 import sergey.zhuravel.munchkin.MunchkinApp;
 import sergey.zhuravel.munchkin.R;
@@ -57,7 +60,7 @@ public class FightFragment extends BaseFragment implements FightContract.View {
         initView(view);
 
         mPresenter = new FightPresenter(this,
-                new FightModel(MunchkinApp.getRealmManager(),MunchkinApp.getSettingManager(getActivity())));
+                new FightModel(MunchkinApp.getRealmManager(), MunchkinApp.getSettingManager(getActivity())));
 
         mFightAdapter = new FightAdapter(mPresenter, getActivity());
         mRwPlayers.setAdapter(mFightAdapter);
@@ -131,22 +134,65 @@ public class FightFragment extends BaseFragment implements FightContract.View {
             case R.id.finishGame:
                 showDialogEndFight();
                 break;
+            case R.id.dice:
+                showDialogDice();
+                break;
         }
 
 
         return super.onOptionsItemSelected(item);
     }
 
+    private void showDialogDice() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomDialog);
+        View viewDialog = getActivity().getLayoutInflater().inflate(R.layout.dialog_dice, null);
+        builder.setView(viewDialog);
+
+        ImageView imgDice = (ImageView) viewDialog.findViewById(R.id.imgDice);
+        int[] dices = {R.drawable.dice_1, R.drawable.dice_2, R.drawable.dice_3, R.drawable.dice_4,
+                R.drawable.dice_5, R.drawable.dice_6};
+
+        int rand = new Random().nextInt(6);
+        imgDice.setImageResource(dices[rand]);
+
+        playSoundDice();
+        imgDice.setOnClickListener(v -> {
+            imgDice.setImageResource(dices[new Random().nextInt(6)]);
+            playSoundDice();
+        });
+
+
+        builder
+                .setCancelable(true)
+                .show();
+
+    }
+
+    private void playSoundDice() {
+
+        new Thread() {
+            public void run() {
+                MediaPlayer mediaPlayer = MediaPlayer.create(getActivity(), R.raw.dice);
+                mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(mp -> {
+                    mp.stop();
+                    mp.release();
+                });
+            }
+        }.start();
+
+    }
+
     @Override
     public void showDialogEndFight() {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(R.string.end_message);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(R.string.end_message);
 
-            builder
-                    .setPositiveButton(R.string.end_yes, (dialog, which) -> navigateToNextFragment(new EndFragment()))
-                    .setNegativeButton(R.string.end_no, (dialog, which) -> dialog.dismiss())
-                    .setCancelable(false)
-                    .show();
+        builder
+                .setPositiveButton(R.string.end_yes, (dialog, which) -> navigateToNextFragment(new EndFragment()))
+                .setNegativeButton(R.string.end_no, (dialog, which) -> dialog.dismiss())
+                .setCancelable(false)
+                .show();
 
     }
 
@@ -155,7 +201,6 @@ public class FightFragment extends BaseFragment implements FightContract.View {
         mFightAdapter.addPlayers(playerList);
 
     }
-
 
 
     @Override
