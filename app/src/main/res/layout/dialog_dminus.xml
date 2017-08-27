@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</LinearLayout>
+<RelativeLayout
+    android:layout_margin="8dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/optionsMinusTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/minusTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="@dimen/elevation_fab"
+            app:fabSize="mini" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-2"
+            android:theme="@style/TextPrimaryFab"
+            app:layout_anchor="@id/minusTwo"
+            app:layout_anchorGravity="center" />
+    </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/optionsMinusThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@id/optionsMinusTwo">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/minusThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="@dimen/elevation_fab"
+            app:fabSize="mini" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-3"
+            android:theme="@style/TextPrimaryFab"
+            app:layout_anchor="@id/minusThree"
+            app:layout_anchorGravity="center" />
+    </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/optionsMinusFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@id/optionsMinusThree">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/minusFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="@dimen/elevation_fab"
+            app:fabSize="mini" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-4"
+            android:theme="@style/TextPrimaryFab"
+            app:layout_anchor="@id/minusFour"
+            app:layout_anchorGravity="center" />
+    </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/optionsMinusFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/optionsMinusTwo"
+        android:layout_marginTop="16dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/minusFive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="@dimen/elevation_fab"
+            app:fabSize="mini" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-5"
+            android:theme="@style/TextPrimaryFab"
+            app:layout_anchor="@id/minusFive"
+            app:layout_anchorGravity="center" />
+    </android.support.design.widget.CoordinatorLayout>
+
+
+
+    <android.support.design.widget.CoordinatorLayout
+
+        android:id="@+id/optionsNull"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/optionsMinusThree"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@id/optionsMinusThree">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/minusNull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:elevation="@dimen/elevation_fab"
+            app:fabSize="mini" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:theme="@style/TextPrimaryFab"
+            app:layout_anchor="@id/minusNull"
+            app:layout_anchorGravity="center" />
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</RelativeLayout>

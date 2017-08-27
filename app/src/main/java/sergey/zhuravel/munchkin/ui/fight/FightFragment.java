@@ -33,9 +33,7 @@ public class FightFragment extends BaseFragment implements FightContract.View {
 
 
     private FloatingActionButton mFabLevelPlus;
-    private FloatingActionButton mFabLevelDPlus;
     private FloatingActionButton mFabLevelMinus;
-    private FloatingActionButton mFabLevelDMinus;
     private FloatingActionButton mFabStrengthPlus;
     private FloatingActionButton mFabStrengthDPlus;
     private FloatingActionButton mFabStrengthMinus;
@@ -78,15 +76,8 @@ public class FightFragment extends BaseFragment implements FightContract.View {
                 mPresenter.processingOptionsPlus(Constant.TYPE_STRENGTH, Constant.OPERATION_PLUS, 1));
         mFabStrengthMinus.setOnClickListener(v ->
                 mPresenter.processingOptionsPlus(Constant.TYPE_STRENGTH, Constant.OPERATION_MINUS, 1));
-
-        mFabLevelDPlus.setOnClickListener(v -> showDialogDPlus(Constant.TYPE_LEVEL));
-        mFabLevelDMinus.setOnClickListener(v -> {
-
-        });
         mFabStrengthDPlus.setOnClickListener(v -> showDialogDPlus(Constant.TYPE_STRENGTH));
-        mFabStrengthDMinus.setOnClickListener(v -> {
-
-        });
+        mFabStrengthDMinus.setOnClickListener(v -> showDialogDMinus(Constant.TYPE_STRENGTH));
     }
 
     @Override
@@ -108,9 +99,7 @@ public class FightFragment extends BaseFragment implements FightContract.View {
         mRwPlayers.setItemAnimator(new DefaultItemAnimator());
 
         mFabLevelPlus = (FloatingActionButton) view.findViewById(R.id.plusLevel);
-        mFabLevelDPlus = (FloatingActionButton) view.findViewById(R.id.dPlusLevel);
         mFabLevelMinus = (FloatingActionButton) view.findViewById(R.id.minusLevel);
-        mFabLevelDMinus = (FloatingActionButton) view.findViewById(R.id.dMinusLevel);
         mFabStrengthPlus = (FloatingActionButton) view.findViewById(R.id.plusStrength);
         mFabStrengthDPlus = (FloatingActionButton) view.findViewById(R.id.dPlusStrength);
         mFabStrengthMinus = (FloatingActionButton) view.findViewById(R.id.minusStrength);
@@ -147,17 +136,17 @@ public class FightFragment extends BaseFragment implements FightContract.View {
 
     @Override
     public void showDialogEndFight() {
-        Snackbar.make(getView(), "End game ?",Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getView(), "End game ?", Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
     public void showErrorMinusLevelMessage() {
-        Snackbar.make(getView(), R.string.error_message_level,Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(getView(), R.string.error_message_level, Snackbar.LENGTH_SHORT).show();
     }
 
     private void showDialogDPlus(String type) {
 
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity(), R.style.CustomDialog);
         View viewDialog = getActivity().getLayoutInflater().inflate(R.layout.dialog_dplus, null);
         dialog.setView(viewDialog);
 
@@ -171,26 +160,89 @@ public class FightFragment extends BaseFragment implements FightContract.View {
         FloatingActionButton plusNine = (FloatingActionButton) viewDialog.findViewById(R.id.plusNine);
         FloatingActionButton plusTen = (FloatingActionButton) viewDialog.findViewById(R.id.plusTen);
 
-        plusTwo.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 2));
-        plusThree.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 3));
-        plusFour.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 4));
-        plusFive.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 5));
-        plusSix.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 6));
-        plusSeven.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 7));
-        plusEight.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 8));
-        plusNine.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 9));
-        plusTen.setOnClickListener(v ->  mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 10));
+        AlertDialog alertDialog = dialog.create();
 
+        plusTwo.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 2);
+            alertDialog.dismiss();
+        });
+        plusThree.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 3);
+            alertDialog.dismiss();
+        });
+        plusFour.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 4);
+            alertDialog.dismiss();
 
-        dialog
-                .setCancelable(true)
-                .create()
-                .show();
+        });
+        plusFive.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 5);
+            alertDialog.dismiss();
+        });
+        plusSix.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 6);
+            alertDialog.dismiss();
+        });
+        plusSeven.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 7);
+            alertDialog.dismiss();
+        });
+        plusEight.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 8);
+            alertDialog.dismiss();
+        });
+        plusNine.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 9);
+            alertDialog.dismiss();
+        });
+        plusTen.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_PLUS, 10);
+            alertDialog.dismiss();
+        });
 
-
+        alertDialog.show();
     }
 
+    private void showDialogDMinus(String type) {
 
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity(), R.style.CustomDialog);
+        View viewDialog = getActivity().getLayoutInflater().inflate(R.layout.dialog_dminus, null);
+        dialog.setView(viewDialog);
+
+        FloatingActionButton minusTwo = (FloatingActionButton) viewDialog.findViewById(R.id.minusTwo);
+        FloatingActionButton minusThree = (FloatingActionButton) viewDialog.findViewById(R.id.minusThree);
+        FloatingActionButton minusFour = (FloatingActionButton) viewDialog.findViewById(R.id.minusFour);
+        FloatingActionButton minusFive = (FloatingActionButton) viewDialog.findViewById(R.id.minusFive);
+        FloatingActionButton minusNull = (FloatingActionButton) viewDialog.findViewById(R.id.minusNull);
+
+
+        AlertDialog alertDialog = dialog.create();
+
+        minusTwo.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_MINUS, 2);
+            alertDialog.dismiss();
+        });
+        minusThree.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_MINUS, 3);
+            alertDialog.dismiss();
+        });
+        minusFour.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_MINUS, 4);
+            alertDialog.dismiss();
+
+        });
+        minusFive.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_MINUS, 5);
+            alertDialog.dismiss();
+        });
+        minusNull.setOnClickListener(v -> {
+            mPresenter.processingOptionsPlus(type, Constant.OPERATION_MINUS, 0);
+            alertDialog.dismiss();
+        });
+
+
+        alertDialog.show();
+    }
 
 
     @Override

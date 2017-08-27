@@ -46,7 +46,7 @@ public class FightPresenter implements FightContract.Presenter {
     }
 
     @Override
-    public void processingOptionsPlus(String type, String operation,int indexCount) {
+    public void processingOptionsPlus(String type, String operation, int indexCount) {
         PlayerFight currentPlayerFight = mView.getCurrentPlayerFight();
 
         switch (operation) {
@@ -54,8 +54,7 @@ public class FightPresenter implements FightContract.Presenter {
                 if (type.equals(Constant.TYPE_LEVEL)) {
                     if (currentPlayerFight.getLevel() == 10) {
                         mView.showDialogEndFight();
-                    }
-                    else {
+                    } else {
                         currentPlayerFight.setLevel(currentPlayerFight.getLevel() + indexCount);
                     }
 
@@ -67,17 +66,19 @@ public class FightPresenter implements FightContract.Presenter {
                 if (type.equals(Constant.TYPE_LEVEL)) {
                     if (currentPlayerFight.getLevel() == 1) {
                         mView.showErrorMinusLevelMessage();
-                    }
-                    else {
+                    } else {
                         currentPlayerFight.setLevel(currentPlayerFight.getLevel() - indexCount);
                     }
 
                 } else {
-                    currentPlayerFight.setStrength(currentPlayerFight.getStrength() - indexCount);
+                    if (indexCount == 0) {
+                        currentPlayerFight.setStrength(indexCount);
+                    } else {
+                        currentPlayerFight.setStrength(currentPlayerFight.getStrength() - indexCount);
+                    }
                 }
                 break;
         }
-
 
 
         mView.notifyFightAdapter();
