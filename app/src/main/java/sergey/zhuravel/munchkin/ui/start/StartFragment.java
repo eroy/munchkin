@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Random;
 
 import sergey.zhuravel.munchkin.MunchkinApp;
 import sergey.zhuravel.munchkin.R;
@@ -76,6 +77,9 @@ public class StartFragment extends BaseFragment implements StartContract.View {
 
         mTvMessage = (TextView) view.findViewById(R.id.tvMessage);
         mIvFight = (ImageView) view.findViewById(R.id.ivFight);
+
+        int[] imgFight = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};
+        mIvFight.setImageResource(imgFight[new Random().nextInt(5)]);
 
     }
 

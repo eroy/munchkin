@@ -24,9 +24,10 @@ import java.util.Random;
 import sergey.zhuravel.munchkin.MunchkinApp;
 import sergey.zhuravel.munchkin.R;
 import sergey.zhuravel.munchkin.constant.Constant;
+import sergey.zhuravel.munchkin.model.Game;
 import sergey.zhuravel.munchkin.model.PlayerFight;
 import sergey.zhuravel.munchkin.ui.base.BaseFragment;
-import sergey.zhuravel.munchkin.ui.end.EndFragment;
+import sergey.zhuravel.munchkin.win.WinFragment;
 
 public class FightFragment extends BaseFragment implements FightContract.View {
 
@@ -189,7 +190,9 @@ public class FightFragment extends BaseFragment implements FightContract.View {
         builder.setMessage(R.string.end_message);
 
         builder
-                .setPositiveButton(R.string.end_yes, (dialog, which) -> navigateToNextFragment(new EndFragment()))
+                .setPositiveButton(R.string.end_yes, (dialog, which) ->
+                        navigateToNextFragmentBundle(new WinFragment(),
+                                new Game(mFightAdapter.getListPlayer())))
                 .setNegativeButton(R.string.end_no, (dialog, which) -> dialog.dismiss())
                 .setCancelable(false)
                 .show();

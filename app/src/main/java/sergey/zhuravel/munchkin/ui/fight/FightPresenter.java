@@ -55,6 +55,7 @@ public class FightPresenter implements FightContract.Presenter {
             case Constant.OPERATION_PLUS:
                 if (type.equals(Constant.TYPE_LEVEL)) {
                     if (currentPlayerFight.getLevel() == (mModel.getMaxLevelFight() - 1)) {
+                        currentPlayerFight.setLevel(currentPlayerFight.getLevel() + indexCount);
                         mView.showDialogEndFight();
                     } else {
                         currentPlayerFight.setLevel(currentPlayerFight.getLevel() + indexCount);

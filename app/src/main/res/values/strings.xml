@@ -24,6 +24,9 @@
     <string name="dice">Dice</string>
     <string name="ok">Ok</string>
     <string name="error_message_level">The level can not be less than 1</string>
+    <string name="draw">Draw</string>
+    <string name="player_win">Player</string>
+    <string name="won_win">won!</string>
 
 
 </resources>

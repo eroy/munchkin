@@ -1,9 +1,23 @@
 package sergey.zhuravel.munchkin.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import sergey.zhuravel.munchkin.Utils;
 
 
-public class PlayerFight {
+public class PlayerFight implements Parcelable {
+    public static final Creator<PlayerFight> CREATOR = new Creator<PlayerFight>() {
+        @Override
+        public PlayerFight createFromParcel(Parcel in) {
+            return new PlayerFight(in);
+        }
+
+        @Override
+        public PlayerFight[] newArray(int size) {
+            return new PlayerFight[size];
+        }
+    };
     private String name;
     private int level;
     private int strength;
@@ -13,6 +27,7 @@ public class PlayerFight {
     public PlayerFight() {
     }
 
+
     public PlayerFight(String name) {
         this.name = name;
         this.level = 1;
@@ -21,7 +36,13 @@ public class PlayerFight {
         this.id = Utils.generateId();
     }
 
-
+    protected PlayerFight(Parcel in) {
+        name = in.readString();
+        level = in.readInt();
+        strength = in.readInt();
+        summary = in.readInt();
+        id = in.readInt();
+    }
 
     public int getId() {
         return id;
@@ -61,5 +82,19 @@ public class PlayerFight {
 
     public void setSummary(int summary) {
         this.summary = summary;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeInt(level);
+        dest.writeInt(strength);
+        dest.writeInt(summary);
+        dest.writeInt(id);
     }
 }

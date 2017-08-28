@@ -1,10 +1,13 @@
 package sergey.zhuravel.munchkin.ui.base;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import sergey.zhuravel.munchkin.R;
+import sergey.zhuravel.munchkin.constant.Constant;
+import sergey.zhuravel.munchkin.model.Game;
 
 
 public class BaseFragment extends Fragment {
@@ -23,7 +26,15 @@ public class BaseFragment extends Fragment {
 
     }
     public void navigateToNextFragment(Fragment fragment) {
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_start, fragment).addToBackStack(null).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_start, fragment).commit();
+
+    }
+
+    public void navigateToNextFragmentBundle(Fragment fragment, Game game) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Constant.LIST_PLAYERS, game);
+        fragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_start, fragment).commit();
 
     }
 
