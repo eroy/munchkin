@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_gravity="center"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.AppCompatEditText
-        android:layout_margin="8dp"
-        android:layout_gravity="center"
         android:id="@+id/et_level"
         android:layout_width="50dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_centerInParent="true"
         android:background="@drawable/edittext_frame"
         android:inputType="numberDecimal"
         android:maxLength="2"
         android:padding="4dp" />
 
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnFight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/et_level"
+        android:layout_marginTop="35dp"
+        android:background="@null"
+        android:text="@string/dialog_level_fight"
+        android:textColor="@color/colorAccent" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_level"
+        android:layout_marginTop="35dp"
+        android:layout_toStartOf="@id/btnFight"
+        android:background="@null"
+        android:text="@string/dialog_level_cancel"
+        android:textColor="@color/colorAccent" />
+
+
+</RelativeLayout>

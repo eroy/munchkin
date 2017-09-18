@@ -28,6 +28,9 @@ public interface StartContract {
         void showErrorMessage();
         void showDialogLevelMaxFight();
 
+
+        void setTextButton(long count);
+        void setDismissDialogLevel();
     }
 
     interface Presenter {
@@ -40,5 +43,8 @@ public interface StartContract {
         void onDestroy();
         int getMaxLevelFight();
 
+        void setTimeFight(int levelMax,int timeFight);
+
+        void unSubscribeTimer();
     }
 }

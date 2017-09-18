@@ -9,12 +9,15 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ import java.util.Random;
 
 import sergey.zhuravel.munchkin.MunchkinApp;
 import sergey.zhuravel.munchkin.R;
+import sergey.zhuravel.munchkin.constant.Constant;
 import sergey.zhuravel.munchkin.model.Player;
 import sergey.zhuravel.munchkin.ui.base.BaseFragment;
 import sergey.zhuravel.munchkin.ui.fight.FightFragment;
@@ -36,6 +40,8 @@ public class StartFragment extends BaseFragment implements StartContract.View {
     private StartAdapter mStartAdapter;
     private TextView mTvMessage;
     private ImageView mIvFight;
+    private Button mBtnFightFight;
+    private AlertDialog mAlertDialogFight;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -158,6 +164,7 @@ public class StartFragment extends BaseFragment implements StartContract.View {
 
         });
 
+
         dialog
                 .setCancelable(false)
                 .create()
@@ -174,16 +181,55 @@ public class StartFragment extends BaseFragment implements StartContract.View {
 
         AppCompatEditText etLevel = (AppCompatEditText) viewDialog.findViewById(R.id.et_level);
         etLevel.setText(String.valueOf(mPresenter.getMaxLevelFight()));
+        mBtnFightFight = (Button) viewDialog.findViewById(R.id.btnFight);
+        Button btnCancel = (Button) viewDialog.findViewById(R.id.btnCancel);
 
-        builder
-                .setPositiveButton(R.string.dialog_level_fight, (dialog, which) -> {
-                    int levelMax = Integer.parseInt(etLevel.getText().toString());
-                    mPresenter.setMaxLevelFight(levelMax);
-                })
-                .setNegativeButton(R.string.dialog_level_cancel, (dialog, which) -> dialog.dismiss())
-                .setCancelable(false)
-                .show();
+        mAlertDialogFight = builder.create();
 
+        etLevel.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mPresenter.unSubscribeTimer();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mPresenter.setTimeFight(Integer.parseInt(etLevel.getText().toString()), Constant.TIME_FIGHT);
+
+        mBtnFightFight.setOnClickListener(v -> {
+            mPresenter.unSubscribeTimer();
+            int levelMax = Integer.parseInt(etLevel.getText().toString());
+            mPresenter.setMaxLevelFight(levelMax);
+            mAlertDialogFight.dismiss();
+        });
+        btnCancel.setOnClickListener(v -> {
+            mPresenter.unSubscribeTimer();
+            mAlertDialogFight.dismiss();
+        });
+
+
+        mAlertDialogFight.setCancelable(false);
+        mAlertDialogFight.show();
+
+    }
+
+    @Override
+    public void setDismissDialogLevel() {
+        mAlertDialogFight.dismiss();
+    }
+
+    @Override
+    public void setTextButton(long count) {
+        mBtnFightFight.setText(getString(R.string.dialog_level_fight) + " " + count);
     }
 
     @Override

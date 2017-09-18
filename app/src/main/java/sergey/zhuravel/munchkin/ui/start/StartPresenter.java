@@ -3,12 +3,20 @@ package sergey.zhuravel.munchkin.ui.start;
 
 import android.util.Log;
 
+import java.util.concurrent.TimeUnit;
+
+import rx.Observable;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 import sergey.zhuravel.munchkin.model.Player;
 
 public class StartPresenter implements StartContract.Presenter {
 
     private StartContract.View mView;
     private StartContract.Model mModel;
+    private Subscription subscription;
+    private int mTime = 3;
 
     public StartPresenter(StartContract.View mView, StartContract.Model mModel) {
         this.mView = mView;
@@ -55,8 +63,7 @@ public class StartPresenter implements StartContract.Presenter {
     public void onClickFight() {
         if (mModel.getCountMunchkin() > 1) {
             mView.showDialogLevelMaxFight();
-        }
-        else {
+        } else {
             mView.showErrorMessage();
         }
     }
@@ -70,6 +77,28 @@ public class StartPresenter implements StartContract.Presenter {
     public void setMaxLevelFight(int levelMax) {
         mModel.setMaxLevelFight(levelMax);
         mView.navigateToFight();
+    }
+
+    @Override
+    public void setTimeFight(int levelMax, int timeFight) {
+        mTime = timeFight;
+        mView.setTextButton(timeFight);
+        Observable<Long> observable = Observable.interval(1, TimeUnit.SECONDS);
+        subscription = observable
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .take(timeFight)
+                .doOnCompleted(() -> {
+                    Log.e("SERj", String.valueOf(levelMax));
+                    setMaxLevelFight(levelMax);
+                    mView.setDismissDialogLevel();
+                })
+                .subscribe(aLong -> mView.setTextButton(--mTime));
+    }
+
+
+    public void unSubscribeTimer() {
+        subscription.unsubscribe();
     }
 
     @Override

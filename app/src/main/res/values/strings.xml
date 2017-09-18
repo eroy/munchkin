@@ -9,7 +9,7 @@
     <string name="add">Add</string>
     <string name="end_yes">Yes, endgame</string>
     <string name="end_no">No, continue</string>
-    <string name="dialog_level_fight">Fight!</string>
+    <string name="dialog_level_fight">Fight</string>
     <string name="dialog_level_cancel">Cancel</string>
     <string name="dialog_level_title">Max level fight</string>
     <string name="end_message">Do you want endgame ?</string>

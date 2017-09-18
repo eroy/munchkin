@@ -9,4 +9,6 @@ public class Constant {
     public static final String OPERATION_MINUS = "minus";
 
     public static final String LIST_PLAYERS = "list_players";
+
+    public static final int TIME_FIGHT = 5;
 }
