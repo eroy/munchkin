@@ -12,16 +12,18 @@
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/optionsPlusTwo"
         android:layout_width="wrap_content"
+        android:background="@drawable/fab"
+
         android:layout_height="wrap_content">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/plusTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,6 +38,8 @@
         android:id="@+id/optionsPlusThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/fab"
+
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@id/optionsPlusTwo">
 
@@ -43,10 +47,10 @@
             android:id="@+id/plusThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,6 +65,8 @@
         android:id="@+id/optionsPlusFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/fab"
+
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@id/optionsPlusThree">
 
@@ -68,10 +74,10 @@
             android:id="@+id/plusFour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,6 +91,8 @@
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/optionsPlusFive"
         android:layout_width="wrap_content"
+        android:background="@drawable/fab"
+
         android:layout_height="wrap_content"
         android:layout_below="@id/optionsPlusTwo"
         android:layout_marginTop="16dp">
@@ -93,10 +101,10 @@
             android:id="@+id/plusFive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,6 +121,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/optionsPlusTwo"
         android:layout_marginStart="16dp"
+        android:background="@drawable/fab"
+
         android:layout_marginTop="16dp"
         android:layout_toEndOf="@id/optionsPlusFive">
 
@@ -120,10 +130,10 @@
             android:id="@+id/plusSix"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -138,6 +148,8 @@
         android:id="@+id/optionsPlusSeven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/fab"
+
         android:layout_below="@id/optionsPlusTwo"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -147,10 +159,10 @@
             android:id="@+id/plusSeven"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -163,6 +175,8 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/optionsPlusEight"
+        android:background="@drawable/fab"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/optionsPlusFive"
@@ -172,10 +186,10 @@
             android:id="@+id/plusEight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -193,16 +207,18 @@
         android:layout_below="@id/optionsPlusFive"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/fab"
+
         android:layout_toEndOf="@id/optionsPlusEight">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/plusNine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -215,6 +231,8 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/optionsPlusTen"
+        android:background="@drawable/fab"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/optionsPlusFive"
@@ -226,10 +244,10 @@
             android:id="@+id/plusTen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="@color/colorPrimary"
             app:elevation="@dimen/elevation_fab"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
 
         <TextView
             android:layout_width="wrap_content"

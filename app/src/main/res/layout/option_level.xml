@@ -7,6 +7,7 @@
     tools:showIn="@layout/fragment_fight">
 
     <TextView
+        android:textColor="@color/textPrimary"
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
         android:id="@+id/textLevel"
@@ -25,16 +26,18 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/optionPlusLevel"
+        android:background="@drawable/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.FloatingActionButton
             app:elevation="@dimen/elevation_fab"
             android:id="@+id/plusLevel"
+            android:layout_margin="@dimen/fab_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             app:backgroundTint="@color/colorPrimary"
+            android:scaleType="center"
             app:fabSize="mini" />
 
         <TextView
@@ -51,6 +54,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/optionPlusLevel"
+        android:background="@drawable/fab"
+
         android:layout_marginTop="26dp">
 
         <android.support.design.widget.FloatingActionButton
@@ -59,7 +64,7 @@
             android:id="@+id/minusLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="2dp"
             app:backgroundTint="@color/colorPrimary"
             app:fabSize="mini" />
 
