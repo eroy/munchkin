@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +18,7 @@ import sergey.zhuravel.munchkin.constant.Constant;
 import sergey.zhuravel.munchkin.model.Game;
 import sergey.zhuravel.munchkin.model.PlayerFight;
 import sergey.zhuravel.munchkin.ui.base.BaseFragment;
-import sergey.zhuravel.munchkin.ui.end.EndFragment;
+import sergey.zhuravel.munchkin.ui.start.StartFragment;
 
 
 public class WinFragment extends BaseFragment implements WinContract.View {
@@ -27,6 +28,9 @@ public class WinFragment extends BaseFragment implements WinContract.View {
     private TextView mTvWin;
     private List<PlayerFight> mPlayerFightList;
     private Game mGame;
+
+    private Button mBtnReply;
+    private Button mBtnEnd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,7 +48,9 @@ public class WinFragment extends BaseFragment implements WinContract.View {
 
         mPresenter.setWinPlayer(mPlayerFightList);
 
-        mPresenter.navigateToFinish();
+
+        mBtnReply.setOnClickListener(v -> navigateToNextFragment(new StartFragment()));
+        mBtnEnd.setOnClickListener(v -> getActivity().finish());
 
         return view;
     }
@@ -52,6 +58,8 @@ public class WinFragment extends BaseFragment implements WinContract.View {
     private void initView(View view) {
         mImgWin = (ImageView) view.findViewById(R.id.imWin);
         mTvWin = (TextView) view.findViewById(R.id.tvWin);
+        mBtnReply = (Button) view.findViewById(R.id.btnReply);
+        mBtnEnd = (Button) view.findViewById(R.id.btnEnd);
 
 
     }
@@ -70,7 +78,7 @@ public class WinFragment extends BaseFragment implements WinContract.View {
 
     @Override
     public void setTextPlayerWin(String winPlayer) {
-        mTvWin.setText(getString(R.string.player_win) + " \"" + winPlayer + "\" " + getString(R.string.won_win));
+        mTvWin.setText(getString(R.string.player_win) + " " + winPlayer + " " + getString(R.string.won_win));
     }
 
     @Override
@@ -79,10 +87,6 @@ public class WinFragment extends BaseFragment implements WinContract.View {
     }
 
 
-    @Override
-    public void navigateToFinish() {
-        navigateToNextFragment(new EndFragment());
-    }
 
     @Override
     public void onDestroy() {

@@ -4,7 +4,6 @@ package sergey.zhuravel.munchkin.win;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
 import sergey.zhuravel.munchkin.model.PlayerFight;
@@ -44,14 +43,7 @@ public class WinPresenter implements WinContract.Presenter {
 
 
 
-    @Override
-    public void navigateToFinish() {
-        Observable
-                .timer(3, TimeUnit.SECONDS)
-                .subscribe(aLong -> mView.navigateToFinish());
 
-
-    }
 
     @Override
     public void onDestroy() {

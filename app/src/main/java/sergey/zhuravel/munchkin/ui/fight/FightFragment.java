@@ -193,7 +193,10 @@ public class FightFragment extends BaseFragment implements FightContract.View {
                 .setPositiveButton(R.string.end_yes, (dialog, which) ->
                         navigateToNextFragmentBundle(new WinFragment(),
                                 new Game(mFightAdapter.getListPlayer())))
-                .setNegativeButton(R.string.end_no, (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(R.string.end_no, (dialog, which) -> {
+                    mPresenter.cancelEndGame();
+                    dialog.dismiss();
+                })
                 .setCancelable(false)
                 .show();
 

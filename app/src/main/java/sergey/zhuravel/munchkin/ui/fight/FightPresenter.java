@@ -64,6 +64,7 @@ public class FightPresenter implements FightContract.Presenter {
                 } else {
                     currentPlayerFight.setStrength(currentPlayerFight.getStrength() + indexCount);
                 }
+                currentPlayerFight.setListSummary();
                 break;
             case Constant.OPERATION_MINUS:
                 if (type.equals(Constant.TYPE_LEVEL)) {
@@ -80,6 +81,7 @@ public class FightPresenter implements FightContract.Presenter {
                         currentPlayerFight.setStrength(currentPlayerFight.getStrength() - indexCount);
                     }
                 }
+                currentPlayerFight.setListSummary();
                 break;
         }
 
@@ -87,6 +89,12 @@ public class FightPresenter implements FightContract.Presenter {
         mView.notifyFightAdapter();
     }
 
+    @Override
+    public void cancelEndGame() {
+        PlayerFight currentPlayerFight = mView.getCurrentPlayerFight();
+        currentPlayerFight.setLevel(currentPlayerFight.getLevel() - 1);
+        mView.notifyFightAdapter();
+    }
 
     @Override
     public void onDestroy() {

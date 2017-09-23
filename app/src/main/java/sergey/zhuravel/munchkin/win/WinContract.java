@@ -13,7 +13,7 @@ public interface WinContract {
     }
 
     interface View {
-        void navigateToFinish();
+
         void setImageWin();
         void setImageDraw();
 
@@ -25,7 +25,6 @@ public interface WinContract {
     interface Presenter {
 
         void onDestroy();
-        void navigateToFinish();
         void setWinPlayer(List<PlayerFight> mPlayerFightList);
 
 

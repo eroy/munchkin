@@ -40,5 +40,7 @@ public interface FightContract {
         void processingOptionsPlus(String type, String operation, int indexCount);
 
         void setTextSubTitle(PlayerFight player);
+        void cancelEndGame();
+
     }
 }
