@@ -92,7 +92,9 @@ public class FightPresenter implements FightContract.Presenter {
     @Override
     public void cancelEndGame() {
         PlayerFight currentPlayerFight = mView.getCurrentPlayerFight();
-        currentPlayerFight.setLevel(currentPlayerFight.getLevel() - 1);
+        if (currentPlayerFight.getLevel() == (mModel.getMaxLevelFight())) {
+            currentPlayerFight.setLevel(currentPlayerFight.getLevel() - 1);
+        }
         mView.notifyFightAdapter();
     }
 

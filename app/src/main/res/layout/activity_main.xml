@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
 
-    tools:context="sergey.zhuravel.munchkin.MainActivity">
+    tools:context="sergey.zhuravel.munchkin.ui.MainActivity">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"

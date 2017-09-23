@@ -84,8 +84,11 @@ public class StartFragment extends BaseFragment implements StartContract.View {
         mTvMessage = (TextView) view.findViewById(R.id.tvMessage);
         mIvFight = (ImageView) view.findViewById(R.id.ivFight);
 
-        int[] imgFight = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};
-        mIvFight.setImageResource(imgFight[new Random().nextInt(5)]);
+        int[] imgFight = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5,
+                R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
+                R.drawable.img6,R.drawable.img7,R.drawable.img8};
+
+        mIvFight.setImageResource(imgFight[new Random().nextInt(8)]);
 
     }
 

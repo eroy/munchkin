@@ -1,9 +1,10 @@
-package sergey.zhuravel.munchkin;
+package sergey.zhuravel.munchkin.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.WindowManager;
 
+import sergey.zhuravel.munchkin.R;
 import sergey.zhuravel.munchkin.ui.base.BaseActivity;
 import sergey.zhuravel.munchkin.ui.start.StartFragment;
 
