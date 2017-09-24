@@ -50,6 +50,8 @@
     <string name="back_message">Do you want to leave the game?</string>
     <string name="back_yes">Yes</string>
     <string name="back_no">No</string>
+    <string name="reply">Reply</string>
+    <string name="end">End</string>
 
 
 </resources>

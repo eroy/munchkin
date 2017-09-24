@@ -44,4 +44,6 @@
     <string name="back_message">Вы хотите покинуть игру?</string>
     <string name="back_no">Нет</string>
     <string name="back_yes">Да</string>
+    <string name="end">Завершить</string>
+    <string name="reply">Повторить</string>
 </resources>
