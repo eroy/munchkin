@@ -9,8 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -87,7 +86,7 @@ public class StartFragment extends BaseFragment implements StartContract.View {
 
         int[] imgFight = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5,
                 R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
-                R.drawable.img6,R.drawable.img7,R.drawable.img8};
+                R.drawable.img6, R.drawable.img7, R.drawable.img8};
 
         mIvFight.setImageResource(imgFight[new Random().nextInt(8)]);
 
@@ -182,40 +181,29 @@ public class StartFragment extends BaseFragment implements StartContract.View {
     @Override
     public void showDialogLevelMaxFight() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.dialog_level_title);
+
         View viewDialog = getActivity().getLayoutInflater().inflate(R.layout.dialog_max_level, null);
         builder.setView(viewDialog);
 
-        AppCompatEditText etLevel = (AppCompatEditText) viewDialog.findViewById(R.id.et_level);
-        etLevel.setText(String.valueOf(mPresenter.getMaxLevelFight()));
         mBtnFightFight = (Button) viewDialog.findViewById(R.id.btnFight);
         Button btnCancel = (Button) viewDialog.findViewById(R.id.btnCancel);
 
+
+        String text = getString(R.string.max_level_fight_is) + " <b>" +
+                String.valueOf(mPresenter.getMaxLevelFight()) +
+                "</b>" + "<br/><br/>" + getString(R.string.you_can_change_ml);
+
+        builder.setMessage(Html.fromHtml(text));
+
         mAlertDialogFight = builder.create();
 
-        etLevel.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
+        mPresenter.setTimeFight(Constant.TIME_FIGHT);
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mPresenter.unSubscribeTimer();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        mPresenter.setTimeFight(Integer.parseInt(etLevel.getText().toString()), Constant.TIME_FIGHT);
 
         mBtnFightFight.setOnClickListener(v -> {
             mPresenter.unSubscribeTimer();
-            int levelMax = Integer.parseInt(etLevel.getText().toString());
-            mPresenter.setMaxLevelFight(levelMax);
+            navigateToFight();
             mAlertDialogFight.dismiss();
         });
         btnCancel.setOnClickListener(v -> {

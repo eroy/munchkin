@@ -112,6 +112,8 @@
     <string name="rate_us">Rate us</string>
     <string name="go_to_app_evaluation">Go to app evaluation</string>
     <string name="max_level">Max level</string>
+    <string name="max_level_fight_is">Max level fight is</string>
+    <string name="you_can_change_ml">You can change the maximum level in the settings.</string>
 
 
 </resources>

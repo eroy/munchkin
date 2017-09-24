@@ -73,14 +73,10 @@ public class StartPresenter implements StartContract.Presenter {
         return mModel.getMaxLevelFight();
     }
 
-    @Override
-    public void setMaxLevelFight(int levelMax) {
-        mModel.setMaxLevelFight(levelMax);
-        mView.navigateToFight();
-    }
+
 
     @Override
-    public void setTimeFight(int levelMax, int timeFight) {
+    public void setTimeFight(int timeFight) {
         mTime = timeFight;
         mView.setTextButton(timeFight);
         Observable<Long> observable = Observable.interval(1, TimeUnit.SECONDS);
@@ -89,8 +85,7 @@ public class StartPresenter implements StartContract.Presenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .take(timeFight)
                 .doOnCompleted(() -> {
-                    Log.e("SERj", String.valueOf(levelMax));
-                    setMaxLevelFight(levelMax);
+                    mView.navigateToFight();
                     mView.setDismissDialogLevel();
                 })
                 .subscribe(aLong -> mView.setTextButton(--mTime));

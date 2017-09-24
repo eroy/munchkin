@@ -39,11 +39,11 @@ public interface StartContract {
         void deleteMunchkin(int id);
         void editMunchkin(Player player);
         void onClickFight();
-        void setMaxLevelFight(int levelMax);
+
         void onDestroy();
         int getMaxLevelFight();
 
-        void setTimeFight(int levelMax,int timeFight);
+        void setTimeFight(int timeFight);
 
         void unSubscribeTimer();
     }
