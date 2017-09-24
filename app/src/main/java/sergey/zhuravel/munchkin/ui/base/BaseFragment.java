@@ -30,6 +30,12 @@ public class BaseFragment extends Fragment {
 
     }
 
+    public void navigateToNextFragmentBack(Fragment fragment) {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_start, fragment)
+                .addToBackStack(null).commit();
+
+    }
+
     public void navigateToNextFragmentBundle(Fragment fragment, Game game) {
         Bundle bundle = new Bundle();
         bundle.putParcelable(Constant.LIST_PLAYERS, game);

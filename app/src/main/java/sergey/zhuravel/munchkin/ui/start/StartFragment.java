@@ -30,6 +30,7 @@ import sergey.zhuravel.munchkin.constant.Constant;
 import sergey.zhuravel.munchkin.model.Player;
 import sergey.zhuravel.munchkin.ui.base.BaseFragment;
 import sergey.zhuravel.munchkin.ui.fight.FightFragment;
+import sergey.zhuravel.munchkin.ui.setting.SettingFragment;
 
 
 public class StartFragment extends BaseFragment implements StartContract.View {
@@ -104,6 +105,9 @@ public class StartFragment extends BaseFragment implements StartContract.View {
         switch (item.getItemId()) {
             case R.id.addMunchkin:
                 showDialogAddMunchkin();
+                break;
+            case R.id.settings:
+                navigateToNextFragmentBack(new SettingFragment());
                 break;
         }
 
