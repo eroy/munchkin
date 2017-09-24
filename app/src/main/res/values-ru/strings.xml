@@ -41,4 +41,7 @@
     <string name="name">Имя</string>
     <string name="summary">Всего</string>
     <string name="sergey_zhuravel">Сергей Журавель</string>
+    <string name="back_message">Вы хотите покинуть игру?</string>
+    <string name="back_no">Нет</string>
+    <string name="back_yes">Да</string>
 </resources>
