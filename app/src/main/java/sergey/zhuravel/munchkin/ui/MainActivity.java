@@ -11,6 +11,7 @@ import sergey.zhuravel.munchkin.ui.start.StartFragment;
 public class MainActivity extends BaseActivity {
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,5 +24,6 @@ public class MainActivity extends BaseActivity {
     private void replaceFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_start, fragment).commit();
     }
+
 
 }

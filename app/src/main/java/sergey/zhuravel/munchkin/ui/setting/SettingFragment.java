@@ -1,7 +1,10 @@
 package sergey.zhuravel.munchkin.ui.setting;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
@@ -22,7 +25,7 @@ public class SettingFragment extends BaseFragment implements SettingContract.Vie
     private Toolbar mToolbar;
     private SettingContract.Presenter mPresenter;
     private LinearLayout mLlLevel;
-    private LinearLayout mLlRate;
+    private LinearLayout mLlCreator;
     private LinearLayout mLlWebsite;
     private LinearLayout mLlVersion;
     private TextView mTextLevel;
@@ -57,12 +60,17 @@ public class SettingFragment extends BaseFragment implements SettingContract.Vie
 
     private void onClick() {
         mLlLevel.setOnClickListener(v -> showDialogEditLevel());
-        mLlRate.setOnClickListener(v -> {
-        });
+        mLlCreator.setOnClickListener(v -> showSnackMessage(getString(R.string.sergey_zhuravel)));
         mLlWebsite.setOnClickListener(v -> {
+            String uri = "http://" + getString(R.string.app_website);
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uri)));
         });
-        mLlVersion.setOnClickListener(v -> {
-        });
+        mLlVersion.setOnClickListener(v -> showSnackMessage(getString(R.string.app_version)));
+    }
+
+
+    private void showSnackMessage(String message) {
+        Snackbar.make(getView(), message, Snackbar.LENGTH_SHORT).show();
     }
 
     private void initView(View view) {
@@ -70,7 +78,7 @@ public class SettingFragment extends BaseFragment implements SettingContract.Vie
         initToolbar(mToolbar, getString(R.string.settings), true);
 
         mLlLevel = (LinearLayout) view.findViewById(R.id.llLevel);
-        mLlRate = (LinearLayout) view.findViewById(R.id.llRate);
+        mLlCreator = (LinearLayout) view.findViewById(R.id.llCreator);
         mLlWebsite = (LinearLayout) view.findViewById(R.id.llWebsite);
         mLlVersion = (LinearLayout) view.findViewById(R.id.llVersion);
         mTextLevel = (TextView) view.findViewById(R.id.textMaxLevel);
@@ -127,4 +135,6 @@ public class SettingFragment extends BaseFragment implements SettingContract.Vie
         mPresenter.onDestroy();
         super.onDestroy();
     }
+
+
 }

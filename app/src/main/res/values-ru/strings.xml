@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Munchkin</string>
+    <string name="about_us">Об приложении</string>
+    <string name="add">Добавить</string>
+    <string name="add_new_munchkin">Добавить нового манчкина</string>
+    <string name="cancel">Отмена</string>
+    <string name="creator">Создатель</string>
+    <string name="delete">Удалить</string>
+    <string name="dialog_add_munchkin">Добавить нового манчкина</string>
+    <string name="dialog_edit_munchkin">Изменить манчкина</string>
+    <string name="dialog_level_cancel">Отмена</string>
+    <string name="dialog_level_fight">Бой</string>
+    <string name="dialog_level_title">Максимальный уровень в бою</string>
+    <string name="dialog_set_max_level">Задать максимальный уровень</string>
+    <string name="dice">Кубик</string>
+    <string name="draw">Ничья</string>
+    <string name="edit">Изменить</string>
+    <string name="end_message">Вы хотите завершить игру?</string>
+    <string name="end_no">Нет, продолжить</string>
+    <string name="end_yes">Да, завершить</string>
+    <string name="error_message_level">Уровень не может быть меньше 1</string>
+    <string name="error_message_person">Для начала боя нужно больше 1 человека</string>
+    <string name="finish">Финиш</string>
+    <string name="general">Основные настройки</string>
+    <string name="level">Уровень</string>
+    <string name="max_level">Максимальный уровень</string>
+    <string name="max_level_fight_is">Максимальный уровень в бою</string>
+    <string name="name_munchkin">Имя манчкина</string>
+    <string name="ok">Ок</string>
+    <string name="player_win">Игрок</string>
+    <string name="please_add_new_munchkin_for_start_game">Пожалуйста, добавьте манчкинов для начала игры</string>
+    <string name="set">Задать</string>
+    <string name="settings">Настройки</string>
+    <string name="strength">Сила</string>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="version">Версия</string>
+    <string name="website">Сайт</string>
+    <string name="won_win">выиграл!</string>
+    <string name="you_can_change_ml">Вы можете изменить максимальный уровень в бою в настройках.</string>
+    <string name="name">Имя</string>
+    <string name="summary">Всего</string>
+    <string name="sergey_zhuravel">Сергей Журавель</string>
+</resources>

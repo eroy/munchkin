@@ -10,6 +10,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +28,7 @@ import sergey.zhuravel.munchkin.constant.Constant;
 import sergey.zhuravel.munchkin.model.Game;
 import sergey.zhuravel.munchkin.model.PlayerFight;
 import sergey.zhuravel.munchkin.ui.base.BaseFragment;
+import sergey.zhuravel.munchkin.ui.start.StartFragment;
 import sergey.zhuravel.munchkin.win.WinFragment;
 
 public class FightFragment extends BaseFragment implements FightContract.View {
@@ -132,12 +134,14 @@ public class FightFragment extends BaseFragment implements FightContract.View {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+
             case R.id.finishGame:
                 showDialogEndFight();
                 break;
             case R.id.dice:
                 showDialogDice();
                 break;
+
         }
 
 
@@ -314,6 +318,36 @@ public class FightFragment extends BaseFragment implements FightContract.View {
         alertDialog.show();
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener((v, keyCode, event) -> {
+
+            if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                showDialogBack();
+                return true;
+            }
+            return false;
+        });
+
+    }
+
+
+    private void showDialogBack() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(R.string.back_message);
+
+        builder
+                .setPositiveButton(R.string.back_yes, (dialog, which) ->
+                        navigateToNextFragment(new StartFragment()))
+                .setNegativeButton(R.string.back_no, (dialog, which) -> dialog.dismiss())
+                .setCancelable(false)
+                .show();
+
+    }
 
     @Override
     public void onDestroy() {

@@ -54,7 +54,7 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/llRate"
+            android:id="@+id/llCreator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -63,14 +63,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/rate_us"
+                android:text="@string/creator"
                 android:textColor="@color/textPrimary"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/go_to_app_evaluation"
+                android:text="@string/sergey_zhuravel"
                 android:textColor="@color/textSecond"
                 android:textSize="14sp" />
         </LinearLayout>
