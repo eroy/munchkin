@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -65,13 +65,13 @@ public class StartAdapter extends RecyclerView.Adapter<StartAdapter.ViewHolder> 
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView nameMunchkin;
-        RelativeLayout rlName;
+        LinearLayout rlName;
 
         ViewHolder(View view) {
             super(view);
 
             nameMunchkin = (TextView) view.findViewById(R.id.tvName);
-            rlName = (RelativeLayout) view.findViewById(R.id.rlName);
+            rlName = (LinearLayout) view.findViewById(R.id.rlName);
 
         }
     }

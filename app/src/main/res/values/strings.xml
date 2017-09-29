@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Munchkin</string>
+    <string name="app_name">Munchkin Man</string>
     <string name="app_version" translatable="false">1.0.1</string>
     <string name="app_website" translatable="false">app.insideme.win/munchkin</string>
     <string name="settings">Settings</string>

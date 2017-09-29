@@ -74,21 +74,20 @@ public class StartFragment extends BaseFragment implements StartContract.View {
     }
 
     private void initView(View view) {
-        mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        mToolbar = view.findViewById(R.id.toolbar);
         initToolbar(mToolbar, getString(R.string.app_name), false);
 
-        mRwPlayers = (RecyclerView) view.findViewById(R.id.rwPlayers);
+        mRwPlayers = view.findViewById(R.id.rwPlayers);
         mRwPlayers.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRwPlayers.setItemAnimator(new DefaultItemAnimator());
 
-        mTvMessage = (TextView) view.findViewById(R.id.tvMessage);
-        mIvFight = (ImageView) view.findViewById(R.id.ivFight);
+        mTvMessage = view.findViewById(R.id.tvMessage);
+        mIvFight = view.findViewById(R.id.ivFight);
 
         int[] imgFight = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5,
-                R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
-                R.drawable.img6, R.drawable.img7, R.drawable.img8};
+                R.drawable.pic6};
 
-        mIvFight.setImageResource(imgFight[new Random().nextInt(12)]);
+        mIvFight.setImageResource(imgFight[new Random().nextInt(6)]);
 
     }
 
@@ -120,7 +119,7 @@ public class StartFragment extends BaseFragment implements StartContract.View {
         View viewDialog = getActivity().getLayoutInflater().inflate(R.layout.dialog_munchkin, null);
         dialog.setView(viewDialog);
 
-        AppCompatEditText etName = (AppCompatEditText) viewDialog.findViewById(R.id.et_name);
+        AppCompatEditText etName = viewDialog.findViewById(R.id.et_name);
 
 
         dialog.setPositiveButton(R.string.add, (dialog1, which) -> {
@@ -150,7 +149,7 @@ public class StartFragment extends BaseFragment implements StartContract.View {
         View viewDialog = getActivity().getLayoutInflater().inflate(R.layout.dialog_munchkin, null);
         dialog.setView(viewDialog);
 
-        AppCompatEditText etName = (AppCompatEditText) viewDialog.findViewById(R.id.et_name);
+        AppCompatEditText etName = viewDialog.findViewById(R.id.et_name);
         etName.setText(player.getName());
 
         dialog.setPositiveButton(R.string.edit, (dialog1, which) -> {
@@ -185,8 +184,8 @@ public class StartFragment extends BaseFragment implements StartContract.View {
         View viewDialog = getActivity().getLayoutInflater().inflate(R.layout.dialog_max_level, null);
         builder.setView(viewDialog);
 
-        mBtnFightFight = (Button) viewDialog.findViewById(R.id.btnFight);
-        Button btnCancel = (Button) viewDialog.findViewById(R.id.btnCancel);
+        mBtnFightFight = viewDialog.findViewById(R.id.btnFight);
+        Button btnCancel = viewDialog.findViewById(R.id.btnCancel);
 
 
         String text = getString(R.string.max_level_fight_is) + " <b>" +
