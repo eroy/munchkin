@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_us">Про програму</string>
+    <string name="add">Додати</string>
+    <string name="add_new_munchkin">Додати нового манчкіна</string>
+    <string name="back_message">Ви хочите закінчити гру ?</string>
+    <string name="back_no">Ні</string>
+    <string name="back_yes">Так</string>
+    <string name="cancel">Відміна</string>
+    <string name="creator">Автор</string>
+    <string name="delete">Видалити</string>
+    <string name="dialog_add_munchkin">Додати нового манчкіна</string>
+    <string name="dialog_edit_munchkin">Змінити манчкіна</string>
+    <string name="dialog_level_cancel">Відміна</string>
+    <string name="dialog_level_fight">Бій</string>
+    <string name="dialog_level_title">Максимальний рівень бою</string>
+    <string name="dialog_set_max_level">Задати максимальний рівень бою</string>
+    <string name="dice">Кубик</string>
+    <string name="draw">Нічія</string>
+    <string name="edit">Змінити</string>
+    <string name="end">Закінчити</string>
+    <string name="end_message">Ви хочите закінчити гру ?</string>
+    <string name="end_no">Ні, продовжити</string>
+    <string name="end_yes">Так, закінчити</string>
+    <string name="error_message_level">Рівень не може бути менше за один</string>
+    <string name="error_message_person">Для початку бія требя більше одного участника</string>
+    <string name="finish">Фініш</string>
+    <string name="general">Загальні налаштування</string>
+    <string name="level">Рівень</string>
+    <string name="max_level">Максимальний рівень</string>
+    <string name="max_level_fight_is">Максимальний рівень у бою</string>
+    <string name="name">Ім\'я</string>
+    <string name="name_munchkin">Ім\'я манчкіна</string>
+    <string name="ok">Так</string>
+    <string name="player_win">Гравець</string>
+    <string name="please_add_new_munchkin_for_start_game">Будь ласка, додайте манчкіна для початку гри</string>
+    <string name="reply">Повторити</string>
+    <string name="set">Задати</string>
+    <string name="settings">Налаштування</string>
+    <string name="strength">Сила</string>
+    <string name="summary">Разом</string>
+    <string name="title_activity_settings">Налаштування</string>
+    <string name="version">Версія</string>
+    <string name="website">Сайт</string>
+    <string name="won_win">переміг!</string>
+    <string name="you_can_change_ml">Ви можите змінити ммаксимальний рівень бою у налаштиуваннях</string>
+</resources>

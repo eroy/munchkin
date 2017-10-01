@@ -74,7 +74,6 @@ public class StartPresenter implements StartContract.Presenter {
     }
 
 
-
     @Override
     public void setTimeFight(int timeFight) {
         mTime = timeFight;
@@ -88,7 +87,8 @@ public class StartPresenter implements StartContract.Presenter {
                     mView.navigateToFight();
                     mView.setDismissDialogLevel();
                 })
-                .subscribe(aLong -> mView.setTextButton(--mTime));
+                .subscribe(aLong -> mView.setTextButton(--mTime),
+                        throwable -> Log.e("TIME-error", throwable.getMessage()));
     }
 
 

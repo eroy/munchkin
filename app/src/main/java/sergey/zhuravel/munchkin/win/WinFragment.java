@@ -66,13 +66,13 @@ public class WinFragment extends BaseFragment implements WinContract.View {
 
     @Override
     public void setImageWin() {
-        int[] imgWin = {R.drawable.w1, R.drawable.w2, R.drawable.w3, R.drawable.w4,R.drawable.w5};
-        mImgWin.setImageResource(imgWin[new Random().nextInt(5)]);
+        int[] imgWin = {R.drawable.pic_win2, R.drawable.pic_win3, R.drawable.pic_win4, R.drawable.pic_win5};
+        mImgWin.setImageResource(imgWin[new Random().nextInt(4)]);
     }
 
     @Override
     public void setImageDraw() {
-        mImgWin.setImageResource(R.drawable.draw);
+        mImgWin.setImageResource(R.drawable.pic_win_draw);
     }
 
     @Override

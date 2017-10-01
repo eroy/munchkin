@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Munchkin</string>
     <string name="about_us">Об приложении</string>
     <string name="add">Добавить</string>
     <string name="add_new_munchkin">Добавить нового манчкина</string>
@@ -40,7 +39,6 @@
     <string name="you_can_change_ml">Вы можете изменить максимальный уровень в бою в настройках.</string>
     <string name="name">Имя</string>
     <string name="summary">Всего</string>
-    <string name="sergey_zhuravel">Сергей Журавель</string>
     <string name="back_message">Вы хотите покинуть игру?</string>
     <string name="back_no">Нет</string>
     <string name="back_yes">Да</string>

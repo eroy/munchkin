@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Munchkin Man</string>
-    <string name="app_version" translatable="false">1.0.1</string>
+    <string name="app_name" translatable="false">Munchkin Man</string>
+    <string name="app_version" translatable="false">1.0.2</string>
     <string name="app_website" translatable="false">app.insideme.win/munchkin</string>
     <string name="settings">Settings</string>
 
@@ -43,7 +43,7 @@
     <string name="max_level">Max level</string>
     <string name="max_level_fight_is">Max level fight is</string>
     <string name="you_can_change_ml">You can change the maximum level in the settings.</string>
-    <string name="sergey_zhuravel">Sergey Zhuravel</string>
+    <string name="sergey_zhuravel" translatable="false">Sergey Zhuravel</string>
     <string name="creator">Creator</string>
     <string name="name">Name</string>
     <string name="summary">Summary</string>
